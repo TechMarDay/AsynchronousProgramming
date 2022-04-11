@@ -1,0 +1,63 @@
+﻿@page "/"
+
+@using BlazorApp.Data
+@inject TaskWhenAll TaskWhenAll
+@inject NoneTaskWhenAll NoneTaskWhenAll
+@inject Cancelling_Tasks CancellingTasks
+@inject TaskAny OnlyOnePattern
+@*
+<h3>Task when all test</h3>
+<button class="btn btn-primary" @onclick="TaskWhenAllTest">TaskWhenAllTest</button>
+<h3>None Task when all test</h3>
+<button class="btn btn-primary" @onclick="NoneTaskWhenAllTest">NoneTaskWhenAllTest</button>
+
+<h3>Cancellation Task</h3>
+<button class="btn btn-primary" @onclick="Start">Start</button>
+<button class="btn btn-primary" @onclick="Cancel">Cancel</button>
+
+<h3>Cancellation timeout Task</h3>
+<button class="btn btn-primary" @onclick="StartCancellationTimeout">Start</button>*@
+
+<h3>Only one pattern</h3>
+<button class="btn btn-primary" @onclick="OnlyOnePatternTest">Start</button>
+
+@code {
+    private string taskWhenAllTestResult = string.Empty;
+    private string noneTaskWhenAllTestResult = string.Empty;
+    private CancellationTokenSource cancellationTokenSource;
+
+
+    private async void TaskWhenAllTest()
+    {
+        await TaskWhenAll.DemoTaskWhenAllAsync();
+    }
+
+    private async Task NoneTaskWhenAllTest()
+    {
+        await NoneTaskWhenAll.DemoNoneTaskWhenAllAsync();
+    }
+
+    private async Task Start()
+    {
+        cancellationTokenSource = new CancellationTokenSource();
+        await CancellingTasks.DemoCancellingTask(cancellationTokenSource);
+    }
+
+    private void Cancel()
+    {
+        cancellationTokenSource?.Cancel();
+    }
+
+    private async Task StartCancellationTimeout()
+    {
+        cancellationTokenSource = new CancellationTokenSource();
+        cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(5));
+        await CancellingTasks.DemoCancellingTask(cancellationTokenSource);
+    }
+
+    private async Task OnlyOnePatternTest()
+    {
+        cancellationTokenSource = new CancellationTokenSource();
+        await OnlyOnePattern.DemoTaskAny(cancellationTokenSource);
+    }
+}

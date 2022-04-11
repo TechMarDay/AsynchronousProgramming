@@ -1,0 +1,46 @@
+﻿@page "/asynchronous"
+
+<PageTitle>Counter</PageTitle>
+
+@using BlazorApp.Data
+@inject TaskWhenAll TaskWhenAll 
+@inject NoneTaskWhenAll NoneTaskWhenAll
+
+<h3>Task when all test</h3>
+
+@if (!string.IsNullOrEmpty(taskWhenAllTestResult))
+{
+    <p role="status">Result: @taskWhenAllTestResult</p>
+}
+<button class="btn btn-primary" @onclick="TaskWhenAllTest">TaskWhenAllTest</button>
+
+<h3>None Task when all test</h3>
+
+@if (!string.IsNullOrEmpty(noneTaskWhenAllTestResult))
+{
+    <p role="status">Result: @noneTaskWhenAllTestResult</p>
+}
+<button class="btn btn-primary" @onclick="NoneTaskWhenAllTest">NoneTaskWhenAllTest</button>
+
+
+@code {
+    private string taskWhenAllTestResult = string.Empty;
+    private string noneTaskWhenAllTestResult = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+         //taskWhenAllTestResult = await TaskWhenAll.DemoTaskWhenAllAsync();
+         //noneTaskWhenAllTestResult = await NoneTaskWhenAll.DemoNoneTaskWhenAllAsync();
+    }
+
+    private async void TaskWhenAllTest()
+    {
+        //taskWhenAllTestResult = await TaskWhenAll.DemoTaskWhenAllAsync();
+    }
+
+    
+    private async Task NoneTaskWhenAllTest()
+    {
+         //await NoneTaskWhenAll.DemoNoneTaskWhenAllAsync();
+    }
+}

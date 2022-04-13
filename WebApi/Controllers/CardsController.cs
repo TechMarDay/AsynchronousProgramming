@@ -12,8 +12,8 @@ namespace WebApi.Controllers
             Random random = new Random();
             var randomValue = random.Next(0, 10);
             var approved = randomValue > 5;
-            await Task.Delay(1000);
-            Console.WriteLine($"Card {card} processed");
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            Console.WriteLine($"Card {card} processed: {approved}");
             return Ok(new { Card = card, Approved = approved });
         }
     }

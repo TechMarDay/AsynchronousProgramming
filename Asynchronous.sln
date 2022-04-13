@@ -5,9 +5,7 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winform", "Winform\Winform.csproj", "{63460782-898F-4E57-8BD4-60BA87E3A1A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{CD2AEECF-76C4-4219-BC16-F3B6A8A15C75}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{11D5BA2B-44E1-4CA7-A75A-8A2D7A301F98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{CD2AEECF-76C4-4219-BC16-F3B6A8A15C75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{CD2AEECF-76C4-4219-BC16-F3B6A8A15C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD2AEECF-76C4-4219-BC16-F3B6A8A15C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD2AEECF-76C4-4219-BC16-F3B6A8A15C75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11D5BA2B-44E1-4CA7-A75A-8A2D7A301F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11D5BA2B-44E1-4CA7-A75A-8A2D7A301F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11D5BA2B-44E1-4CA7-A75A-8A2D7A301F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11D5BA2B-44E1-4CA7-A75A-8A2D7A301F98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
